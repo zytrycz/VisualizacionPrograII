@@ -3,16 +3,16 @@ class Node {
   String value;
   ArrayList edges;
   ArrayList weights;
-  color c;
+  
   
  
-  Node(String values, String edge, int weight ,color burbuja_c) {
+  public Node(String values, String edge, int weight) {
     value = values;
     addEdge(edge, weight);
-    c = burbuja_c;
+    
   }
   
-  void addEdge(String edge, int weight) {
+  public void addEdge(String edge, int weight) {
     if (edges == null) {
       edges = new ArrayList();
     }

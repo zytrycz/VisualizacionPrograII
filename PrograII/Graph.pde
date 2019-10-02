@@ -1,8 +1,8 @@
 class Graph {
  
-    ArrayList<Node> nodes;
+    public ArrayList<Node> nodes;
  
-    void addNode(Node node) {
+    public void addNode(Node node) {
         if (nodes == null) {
             nodes = new ArrayList();
         }
@@ -17,7 +17,7 @@ class Graph {
         }
     } 
     @Override
-    String toString() {
+    public String toString() {
         return "Graph [nodes=" + nodes + "]";
     }
  
