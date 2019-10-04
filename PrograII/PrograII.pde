@@ -1,3 +1,4 @@
+
 import controlP5.*;
 
 //This are objets from libraries of classes of the program
@@ -14,6 +15,7 @@ boolean rect2Over = false;
 Table DB;
 PImage index;
 int state = 0;
+
 
 void setup(){
   
@@ -52,22 +54,27 @@ void setup(){
     }
     
     strokeWeight(5);
+
     /*
     * according to what talked to the teacher in the class the CSV for the DB,
     * it only handles format the reading of assembly nodes and arcs at reading time,
     * it is formatted "Node, Next Node, weight"
     */
+
     DB = loadTable("DB.csv", "header");
     Graph  graph = new Graph();
     ArrayList<Node> list = new ArrayList();
     for(TableRow row : DB.rows())
     {
+
       Node n = new Node(row.getString("pos"),row.getString("next"),row.getInt("weight"));
       
+
       list.add(n);
     }
     for (Node x : list)
     {
+
       
       graph.addNode(x);
       String nodeToPrint = graph.toString();
@@ -229,4 +236,5 @@ public class ControlFrame extends PApplet {
   ControlP5 cp5;
 
   Object parent;
+
 }
