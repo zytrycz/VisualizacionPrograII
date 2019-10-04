@@ -34,7 +34,7 @@ void setup(){
     //Information needed to display the slidebars
     cp5 = new ControlP5(this);
     if(state == 0){
-    cp5.addSlider("Peso mínimo")
+    cp5.addSlider("Peso minimo")
      .setRange(0,200)
      .setValue(25)
      .setPosition(650,600)
@@ -46,7 +46,7 @@ void setup(){
      .setPosition(650,650)
      .setSize(200,20);
      
-     cp5.addSlider("Peso máximo")
+     cp5.addSlider("Peso maximo")
      .setRange(0,200)
      .setValue(100)
      .setPosition(650,700)
@@ -141,8 +141,27 @@ void draw(){
 }
 
 void keyPressed(){
-  state = 0;
-  redraw();
+  if(state != 0){
+      cp5.addSlider("Peso minimo")
+     .setRange(0,200)
+     .setValue(25)
+     .setPosition(650,600)
+     .setSize(200,20);
+     
+     cp5.addSlider("Peso medio")
+     .setRange(0,200)
+     .setValue(50)
+     .setPosition(650,650)
+     .setSize(200,20);
+     
+     cp5.addSlider("Peso maximo")
+     .setRange(0,200)
+     .setValue(100)
+     .setPosition(650,700)
+     .setSize(200,20);  
+     state = 0;
+     redraw();
+  }
 }
 
 //Actions are splited in separate scenarios or states. State 1: Menu, State 2: Nodos y arcos, State 3: Matriz de adyacencia
@@ -158,11 +177,15 @@ void mouseClicked() {
     }
     //Actions to be done when the user is in the "Nodos y Arcos" visualization
     if(state == 1){
-      state = 1;
+        cp5.remove("Peso minimo");
+        cp5.remove("Peso medio");
+        cp5.remove("Peso maximo");
     }
     //Actions to be done when the user is in the "Matriz de Adyacencia" visualization
      if(state == 2){
-       state = 2;
+        cp5.remove("Peso minimo");
+        cp5.remove("Peso medio");
+        cp5.remove("Peso maximo");
     }
 }
 
