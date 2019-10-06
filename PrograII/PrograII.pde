@@ -9,12 +9,12 @@ void setup(){
     stroke(#ffffff);
     //grosor del trazo en píxeles
     strokeWeight(5);
-    DB = loadTable("DB.csv", "header");
+    DB = loadTable("PC2-Datos.csv", "header");
     Graph  graph = new Graph();
     ArrayList<Node> list = new ArrayList();
     for(TableRow row : DB.rows())
     {
-      Node n = new Node(row.getString("pos"),row.getString("next"),row.getInt("weight"));
+      Node n = new Node(row.getString("Node"),row.getString("Next"),row.getInt("Weight"));
       //println(row.getString("pos")+"   "+row.getString("next")+"  "+row.getInt("weight"));
       list.add(n);
     }
