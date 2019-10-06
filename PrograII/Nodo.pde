@@ -3,9 +3,7 @@ class Node {
   String value;
   ArrayList edges;
   ArrayList weights;
-  
-  
- 
+
   public Node(String values, String edge, int weight) {
     value = values;
     addEdge(edge, weight);

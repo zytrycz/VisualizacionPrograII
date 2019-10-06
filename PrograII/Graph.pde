@@ -5,7 +5,6 @@ class Graph {
     public void addNode(Node node) {
         if (nodes == null) {
             nodes = new ArrayList();
-            nodes.add(node);
         }
         else{
           if(nodes.contains(node.value)){
