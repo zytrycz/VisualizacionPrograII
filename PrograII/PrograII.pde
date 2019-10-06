@@ -59,7 +59,7 @@ void setup(){
     ArrayList<Node> list = new ArrayList();
     for(TableRow row : DB.rows())
     {
-      
+      Node n = new Node(row.getString("Node"),row.getString("Next"),row.getInt("Weight"));
       //println(row.getString("Node")+"   "+row.getString("Next")+"  "+row.getInt("Weight"));
       list.add(n);
     }
