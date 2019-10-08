@@ -6,7 +6,7 @@ final int CANVAS_HEIGHT_DEFAULT = 800;
 
 final String DATA_FILE_PATH = "data.csv";
 
-ForceDirectedGraph1 forceDirectedGraph;
+TipoN grafoTipoN;
 //This are objets from libraries of classes of the program
 ControlP5 cp5;
 ControlFrame cf;
@@ -29,9 +29,9 @@ void setup(){
     int canvasWidth = CANVAS_WIDTH_DEFAULT;
     int canvasHeight = CANVAS_HEIGHT_DEFAULT;
   
-    forceDirectedGraph = createForceDirectedGraphFrom(DATA_FILE_PATH);
-    forceDirectedGraph.set(0.0f, 0.0f, (float)canvasWidth, (float)canvasHeight);
-    forceDirectedGraph.initializeNodeLocations();
+    grafoTipoN = createForceDirectedGraphFrom(DATA_FILE_PATH);
+    grafoTipoN.set(0.0f, 0.0f, (float)canvasWidth, (float)canvasHeight);
+    grafoTipoN.initializeNodeLocations();
     //Setting up the styling of the index information and background
     rectHighlight = color(200);
     rect1X = width/2-rectSize-10;
@@ -79,7 +79,6 @@ void setup(){
     for (Nodo x : list)
     {
 
-      
       graph.addNode(x);
       String nodeToPrint = graph.toString();
       System.out.println(x.weights);
@@ -135,7 +134,7 @@ void draw(){
   //If state equals 1, then processing is going to process the visualization of the node as type N
   if(state == 1){
   background(180);
-  forceDirectedGraph.draw();
+  grafoTipoN.draw();
   }
   //If state equals 1, then processing is going to process the visualization of the node as type M
   if(state == 2){
@@ -268,26 +267,28 @@ public class ControlFrame extends PApplet {
 }
 
 void mouseMoved(){
-  if(forceDirectedGraph.isIntersectingWith(mouseX, mouseY))
-    forceDirectedGraph.onMouseMovedAt(mouseX, mouseY);
+  if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
+    grafoTipoN.onMouseMovedAt(mouseX, mouseY);
 }
+
+
 void mousePressed(){
-  if(forceDirectedGraph.isIntersectingWith(mouseX, mouseY))
-    forceDirectedGraph.onMousePressedAt(mouseX, mouseY);
+  if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
+    grafoTipoN.onMousePressedAt(mouseX, mouseY);
 
 }
 void mouseDragged(){
-  if(forceDirectedGraph.isIntersectingWith(mouseX, mouseY))
-    forceDirectedGraph.onMouseDraggedTo(mouseX, mouseY);
+  if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
+    grafoTipoN.onMouseDraggedTo(mouseX, mouseY);
 
 }
 void mouseReleased(){
-  if(forceDirectedGraph.isIntersectingWith(mouseX, mouseY))
-    forceDirectedGraph.onMouseReleased();
+  if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
+    grafoTipoN.onMouseReleased();
 }
 
-ForceDirectedGraph1 createForceDirectedGraphFrom(String dataFilePath){
-  ForceDirectedGraph1 forceDirectedGraph = new ForceDirectedGraph1();
+TipoN createForceDirectedGraphFrom(String dataFilePath){
+  TipoN forceDirectedGraph = new TipoN();
   String[] DB = loadStrings(dataFilePath);
   for(int i = 0; i < DB.length; i++){
     if(i == 0){

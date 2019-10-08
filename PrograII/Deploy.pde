@@ -1,4 +1,4 @@
-public class Viewport{
+public class Visualization{
 
   protected float viewX;
   protected float viewY;
@@ -8,10 +8,10 @@ public class Viewport{
   protected float viewCenterY;
   protected boolean isHighlighted;
 
-  public Viewport(){
+  public Visualization(){
     this(-1.0f, -1.0f, -1.0f, -1.0f); //ad-hoc
   }
-  public Viewport(float viewX, float viewY, float viewWidth, float viewHeight){
+  public Visualization(float viewX, float viewY, float viewWidth, float viewHeight){
     this.set(viewX, viewY, viewWidth, viewHeight);
     this.dehighlight();
   }
