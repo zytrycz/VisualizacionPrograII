@@ -1,4 +1,4 @@
-public class ForceDirectedGraph1 extends Viewport{
+public class TipoN extends Visualization{
 
   private static final float TOTAL_KINETIC_ENERGY_DEFAULT = MAX_FLOAT;
   public static final float SPRING_CONSTANT_DEFAULT       = 0.05f;
@@ -15,7 +15,7 @@ public class ForceDirectedGraph1 extends Viewport{
   private Node lockedNode;
   private Node dummyCenterNode; //for pulling the glaph to center
 
-  public ForceDirectedGraph1(){
+  public TipoN(){
     super();
     this.nodes = new ArrayList<Node>();
     this.totalKineticEnergy = TOTAL_KINETIC_ENERGY_DEFAULT;
@@ -94,9 +94,12 @@ public class ForceDirectedGraph1 extends Viewport{
   }
 
   private void drawEdges(){
-    stroke(51, 51, 255);
+    
     for(int i = 0; i < this.nodes.size(); i++){
       Node node1 = this.nodes.get(i);
+      if(node1.getSizeOfAdjacents() < 50) stroke(51, 200, 255);
+      if(node1.getSizeOfAdjacents() < 100) stroke(51, 51, 255);
+      if(node1.getSizeOfAdjacents() < 500) stroke(200, 51, 255);
       for(int j = 0; j < node1.getSizeOfAdjacents(); j++){
         Node node2 = node1.getAdjacentAt(j);
         line(node1.getX(), node1.getY(), node2.getX(), node2.getY());
