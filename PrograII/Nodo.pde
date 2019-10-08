@@ -1,5 +1,5 @@
 class Nodo {
-  //Declaramos la clase 'Burbuja' con tres propiedades
+  //Declaramos la clase 'Nodo' con tres propiedades
   String value;
   ArrayList edges;
   ArrayList weights;

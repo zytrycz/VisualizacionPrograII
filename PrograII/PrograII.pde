@@ -20,6 +20,7 @@ boolean rect1Over = false;
 boolean rect2Over = false;
 Table DB;
 PImage index;
+Graph graph;
 int state = 0;
 
 
@@ -67,7 +68,7 @@ void setup(){
     
     strokeWeight(5);
     DB = loadTable("PC2-Datos.csv", "header");
-    Graph  graph = new Graph();
+    graph = new Graph();
     ArrayList<Nodo> list = new ArrayList();
     for(TableRow row : DB.rows())
     {
@@ -140,6 +141,7 @@ void draw(){
   if(state == 2){
     noLoop();
   background(240);
+  graph.draw();
   }
 }
 
