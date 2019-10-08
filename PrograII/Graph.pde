@@ -1,17 +1,17 @@
 class Graph {
  
-    public ArrayList<Node> nodes;
+    public ArrayList<Nodo> nodes;
  
-    public void addNode(Node node) {
+    public void addNode(Nodo nodo) {
         if (nodes == null) {
             nodes = new ArrayList();
         }
         else{
-          if(nodes.contains(node.value)){
+          if(nodes.contains(nodo.value)){
               System.out.println("Existing node");
           }
           else{
-              nodes.add(node);
+              nodes.add(nodo);
               System.out.println("Node added");
           }
         }

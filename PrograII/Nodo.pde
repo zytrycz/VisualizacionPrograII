@@ -1,10 +1,10 @@
-class Node {
+class Nodo {
   //Declaramos la clase 'Burbuja' con tres propiedades
   String value;
   ArrayList edges;
   ArrayList weights;
 
-  public Node(String values, String edge, int weight) {
+  public Nodo(String values, String edge, int weight) {
     value = values;
     addEdge(edge, weight);
     
