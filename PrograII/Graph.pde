@@ -50,10 +50,29 @@ class Graph {
       }
     }
   }
-  for (int i = 0; i < this.nodes.size(); i++){
+  TipoN graph = createForceDirectedGraphFrom(DATA_FILE_PATH);
+  int x = 60;
+  int y = 80;
+  for (int i = 0; i < graph.nodes.size(); i++){
       fill(000000);
-      text(this.nodes.get(i).value, 18, (i+1.5)*50);
-      text(this.nodes.get(i).value, (i+1.5)*50, 18);
+      text(graph.nodes.get(i).id, 18, (i+1.5)*50);
+      text(graph.nodes.get(i).id, (i+1.2)*50, 35);
+      int conecction = -1;
+      for (int j = 0; j<graph.nodes.size(); j++){
+        if (graph.nodes.get(i).adjacents.contains(graph.nodes.get(j))){
+          fill(0,100,0);
+          text(int(graph.nodes.get(i).naturalSpringLengths.get(
+                                                graph.nodes.get(i).adjacents.indexOf(graph.nodes.get(j))
+                                                )), x, y);
+        }
+        else{
+            fill(255, 0, 0);
+            text("-----", x, y);
+        }  
+        x+=50;
+      }
+      x=60;
+      y+=50;
   }
   
 }
