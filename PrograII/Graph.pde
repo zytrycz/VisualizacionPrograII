@@ -1,6 +1,7 @@
-ScrollRect scrollRect;        // the vertical scroll bar
-float heightOfCanvas = 1600;  // realHeight of the entire scene  
-
+ScrollRect scrollRect;      // the vertical scroll bar
+HorizontalScroll horizontalScroll;
+float widthOfCanvas = 800;  // realHeight of the entire scene  
+float heightOfCanvas = 1600; 
 class Graph {
  
     public ArrayList<Nodo> nodes;
@@ -28,17 +29,12 @@ class Graph {
       scene();
       scrollRect.display();
       scrollRect.update(); 
+      horizontalScroll.display();
+      horizontalScroll.update();
       
     }
     
     public void matriz(){
-  
-  float x1 = 40;
-  float y1 = 40;
-  float toAddX= width/graph.nodes.size();
-  float x2 = 40+toAddX;
-  float toAddY = height/graph.nodes.size();
-  float y2 = 40+toAddY;
   TipoN graph = createForceDirectedGraphFrom(DATA_FILE_PATH);
   // Begin loop for columns
   for (int i = 0; i < graph.nodes.size()+1; i++) {
@@ -50,7 +46,7 @@ class Graph {
       int x = i*40;      
       int y = j*40;
       if (i != 0 && j != 0){      
-        // For every column and row, a rectangle is drawn at an (x,y) location scaled and sized by videoScale.
+        // For every column and row, a rectangle is drawn at an (x,y)
         rect(x, y, 40, 40);
       }
     }
@@ -62,7 +58,6 @@ class Graph {
       fill(000000);
       text(graph.nodes.get(i).id, 18, (i+1.5)*40);
       text(graph.nodes.get(i).id, (i+1.2)*40, 35);
-      int conecction = -1;
       for (int j = 0; j<graph.nodes.size(); j++){
         if (graph.nodes.get(i).adjacents.contains(graph.nodes.get(j))){
           fill(0,100,0);
@@ -72,7 +67,7 @@ class Graph {
         }
         else{
             fill(255, 0, 0);
-            text("-----", x, y);
+            text("----", x, y);
         }  
         x+=40;
       }
@@ -90,6 +85,9 @@ class Graph {
     // reading scroll bar 
     float newYValue = scrollRect.scrollValue();  
     translate (0, newYValue);
+    
+    float newXValue = horizontalScroll.scrollValue();  
+    translate (newXValue,0);
    
     // The scene :
     matriz();

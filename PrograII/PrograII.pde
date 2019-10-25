@@ -40,6 +40,7 @@ void setup(){
     size(1600, 800);
     noStroke();
     scrollRect = new ScrollRect();
+    horizontalScroll = new HorizontalScroll();
     
     
     //Information needed to display the slidebars
@@ -273,6 +274,7 @@ void mouseMoved(){
 void mousePressed(){
   if (state == 2){
     scrollRect.mousePressedRect();
+    horizontalScroll.mousePressedRect();
   }
   if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
     grafoTipoN.onMousePressedAt(mouseX, mouseY);
@@ -286,6 +288,7 @@ void mouseDragged(){
 void mouseReleased(){
   if(state == 2){
     scrollRect.mouseReleasedRect();
+    horizontalScroll.mouseReleasedRect();
   }
   if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
     grafoTipoN.onMouseReleased();
