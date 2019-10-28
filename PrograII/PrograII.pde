@@ -40,7 +40,7 @@ void setup(){
     size(1600, 800);
     noStroke();
     scrollRect = new ScrollRect();
-    horizontalScroll = new HorizontalScroll();
+    horizontalScroll = new ScrollH();
     
     
     //Information needed to display the slidebars

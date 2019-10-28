@@ -1,6 +1,6 @@
 ScrollRect scrollRect;      // the vertical scroll bar
-HorizontalScroll horizontalScroll;
-float widthOfCanvas = 800;  // realHeight of the entire scene  
+ScrollH horizontalScroll;
+float widthOfCanvas = 3000;  // realHeight of the entire scene  
 float heightOfCanvas = 1600; 
 class Graph {
  

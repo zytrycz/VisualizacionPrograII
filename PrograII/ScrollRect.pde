@@ -70,4 +70,4 @@ class ScrollRect {
       mouseY<rectPosY+rectHeight;
   }//function 
   //
-}//class 
+}//class
