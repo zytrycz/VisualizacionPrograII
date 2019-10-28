@@ -1,7 +1,7 @@
 ScrollRect scrollRect;      // the vertical scroll bar
 ScrollH horizontalScroll;
 float widthOfCanvas = 3000;  // realHeight of the entire scene  
-float heightOfCanvas = 1600; 
+float heightOfCanvas = 3000; 
 class Graph {
  
     public ArrayList<Nodo> nodes;
