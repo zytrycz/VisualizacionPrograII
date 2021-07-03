@@ -1,11 +1,9 @@
-
 import controlP5.*;
 
 final int CANVAS_WIDTH_DEFAULT  = 1600;
 final int CANVAS_HEIGHT_DEFAULT = 800;
 
 final String DATA_FILE_PATH = "data.csv";
-
 TipoN grafoTipoN;
 //This are objets from libraries of classes of the program
 ControlP5 cp5;
@@ -25,7 +23,6 @@ int state = 0;
 
 
 void setup(){
-  
     int canvasWidth = CANVAS_WIDTH_DEFAULT;
     int canvasHeight = CANVAS_HEIGHT_DEFAULT;
   
@@ -39,9 +36,11 @@ void setup(){
     rect2X = width/2-rectSize-10;
     rect2Y = height/2-rectSize/2;
     index = loadImage("index.png");
-    image(index,0,0,1600,800);
+    image(index,0,0,width,height);
     size(1600, 800);
     noStroke();
+    scrollRect = new ScrollRect();
+    horizontalScroll = new ScrollH();
     
     
     //Information needed to display the slidebars
@@ -138,7 +137,7 @@ void draw(){
   }
   //If state equals 1, then processing is going to process the visualization of the node as type M
   if(state == 2){
-    noLoop();
+   // noLoop();
   background(240);
   graph.draw();
   }
@@ -273,6 +272,10 @@ void mouseMoved(){
 
 
 void mousePressed(){
+  if (state == 2){
+    scrollRect.mousePressedRect();
+    horizontalScroll.mousePressedRect();
+  }
   if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
     grafoTipoN.onMousePressedAt(mouseX, mouseY);
 
@@ -283,6 +286,10 @@ void mouseDragged(){
 
 }
 void mouseReleased(){
+  if(state == 2){
+    scrollRect.mouseReleasedRect();
+    horizontalScroll.mouseReleasedRect();
+  }
   if(grafoTipoN.isIntersectingWith(mouseX, mouseY))
     grafoTipoN.onMouseReleased();
 }
